@@ -9,10 +9,16 @@ import {
 
 dotenv.config();
 
-const horoscopeJob = schedule.scheduleJob("0 6 * * *", () => {
-  console.log("Running scheduled job: handleUpluad at " + new Date());
+const horoscopeJob = schedule.scheduleJob("0 2 * * *", () => {
+  console.log("Running scheduled horoscope job at " + new Date());
   handleUpluad("horoscope_1", generateHoroscopeStoryImageCanvasPage1);
   handleUpluad("horoscope_2", generateHoroscopeStoryImageCanvasPage2);
 });
 
-console.log("Horoscope image generation and uploader scheduled.");
+const calendarJob = schedule.scheduleJob("0 1 * * *", () => {
+  console.log("Running scheduled calendar job at " + new Date());
+  handleUpluad("horoscope_1", generateHoroscopeStoryImageCanvasPage1);
+  handleUpluad("horoscope_2", generateHoroscopeStoryImageCanvasPage2);
+});
+
+console.log("Jobs scheduled.");
