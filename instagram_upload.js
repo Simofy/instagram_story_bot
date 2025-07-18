@@ -4,10 +4,10 @@ dotenv.config();
 
 const { ACCESS_TOKEN, INSTAGRAM_APP_ID, DOMAIN_NAME } = process.env;
 
-async function handleUpluad(image, generateImage) {
+async function handleUpload(image, generateImage) {
   const today = new Date().getDay();
   console.log(
-    `handleUpluad for ${image} start for day ${today}: ` + new Date()
+    `handleUpload for ${image} start for day ${today}: ` + new Date()
   );
   const outputImageFilename = `${image}_${today}.png`;
 
@@ -146,6 +146,6 @@ async function handleUpluad(image, generateImage) {
   console.groupEnd();
 }
 
-module.exports = {
-  handleUpluad,
+export {
+  handleUpload,
 };

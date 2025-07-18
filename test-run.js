@@ -3,8 +3,14 @@ import {
   generateHoroscopeStoryImageCanvasPage1,
   generateHoroscopeStoryImageCanvasPage2,
 } from "./horoscope_worker.js";
-import { handleUpluad } from "./instagram_upload.js";
+import { handleUpload } from "./instagram_upload.js";
 
-handleUpluad("horoscope_1", generateHoroscopeStoryImageCanvasPage1);
-handleUpluad("horoscope_2", generateHoroscopeStoryImageCanvasPage2);
-handleUpluad("calendar", generateCalendarForToday);
+generateHoroscopeStoryImageCanvasPage1('horoscope_1.png');
+
+async function runJobs() {
+  // await handleUpload("calendar", generateCalendarForToday);
+  await handleUpload("horoscope_1", generateHoroscopeStoryImageCanvasPage1);
+  await handleUpload("horoscope_2", generateHoroscopeStoryImageCanvasPage2);
+}
+
+runJobs();

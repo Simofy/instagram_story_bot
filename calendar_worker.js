@@ -58,6 +58,4 @@ async function generateCalendarForToday(outputImageName) {
   });
 }
 
-generateCalendarForToday("calendar_today.png");
-
 export { generateCalendarForToday };
